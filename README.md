@@ -5,13 +5,13 @@
 - Install Python.
 - Install PySpark:
 
-```
+```powershell
 pip install pyspark==3.5.6
 ```
 
 - Install Pytest:
 
-```
+```powershell
 pip install pytest
 ```
 
@@ -60,7 +60,7 @@ Add to System `Path`:
 
 ### PowerShell Commands
 
-```
+```powershell
 echo $env:JAVA_HOME
 where.exe java
 java -version
@@ -71,7 +71,7 @@ where.exe winutils
 
 ### CMD Commands
 
-```
+```cmd
 echo %JAVA_HOME%
 where java
 java -version
@@ -86,7 +86,7 @@ where winutils
 
 Create `main.py`:
 
-```
+```py
 from pyspark.sql import SparkSession
 
 spark = (
@@ -108,7 +108,7 @@ spark.stop()
 
 Run the script:
 
-```
+```powershell
 python main.py
 ```
 
@@ -116,26 +116,26 @@ python main.py
 
 Create `test_spark.py`:
 
-```
+```py
 def test_addition():
     assert 2 + 3 == 5
 ```
 
 Run all tests:
 
-```
+```powershell
 pytest
 ```
 
 Run with detailed output:
 
-```
+```powershell
 pytest -v
 ```
 
 Run a specific test file:
 
-```
+```powershell
 pytest test_spark.py -v
 ```
 
@@ -176,3 +176,9 @@ Stop-Process -Id <PID> -Force
 ```
 
 **Note:** Replace `<PID>` with the actual process ID. Don't terminate all Java or Python processes blindly, as other applications may be using them.
+
+Run Unit test
+
+```powershell
+pytest -v -s .\tests\test_read_bq_data_spark.py
+```
